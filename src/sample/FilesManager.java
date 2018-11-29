@@ -1,5 +1,7 @@
 package sample;
 
+import net.datastructures.AVLTreeMap;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -34,8 +36,12 @@ public class FilesManager {
         {
             String[] line = fileToIndexReader.nextLine().split(" ");
             for (String word: line)
+            {
                 if (word.contains(","))
                     word = word.substring(0, word.length()-1);
+                if (word.contains("."))
+                    word = word.substring(0, word.length()-1);
+            }
             lines.add(line);
         }
         return lines;
