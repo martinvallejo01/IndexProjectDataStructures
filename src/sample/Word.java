@@ -7,20 +7,28 @@ public class Word {
     public class Position
     {
         public int Line;
-        public int Position;
+        public int Column;
 
-        public Position(int line, int position)
+        public Position(int line, int column)
         {
             Line = line;
-            Position = position;
+            Column = column;
         }
     }
 
     public String Word;
     public List<Position> Positions;
 
+    public Word(String word) {
+        Word = word;
+    }
+
     @Override
     public String toString() {
         return "";
+    }
+
+    public void addPosition(int line, int column) {
+        Positions.add(new Position(line, column));
     }
 }

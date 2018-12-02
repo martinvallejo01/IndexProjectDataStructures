@@ -29,7 +29,7 @@ public class FilesManager {
 
     }
 
-    public ArrayList<String[]> WordsMatrix()
+    public ArrayList<String[]> TextInMatrixForm()
     {
         ArrayList<String[]> lines = new ArrayList<String[]>();
         while(fileToIndexReader.hasNextLine())
@@ -45,5 +45,17 @@ public class FilesManager {
             lines.add(line);
         }
         return lines;
+    }
+
+    public ArrayList<String> WordToExclude() {
+        ArrayList<String> r = new ArrayList<String>();
+
+        while(fileWithExceptionsReader.hasNextLine()) {
+            r.add(fileWithExceptionsReader.nextLine());
+
+        }
+        r.sort(String::compareTo);
+        return r;
+
     }
 }
