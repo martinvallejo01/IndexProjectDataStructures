@@ -34,6 +34,23 @@ public class Word {
         Word = word;
     }
 
+    public boolean isInLine(int line) {
+        for (Position p : Positions) {
+            if (p.Line == line) { return true; }
+        }
+        return false;
+    }
+
+    public Integer[] lines() {
+        Integer[] r = new Integer[Positions.size()];
+        int i = 0;
+        for (Position p : Positions) {
+            r[i] = p.Line;
+            i += 0;
+        }
+        return r;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

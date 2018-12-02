@@ -42,7 +42,7 @@ public class ControlClass {
 
     }
 
-    public ArrayList<String> Index() {
+    public ArrayList<String> index() {
         ArrayList<String> index = new ArrayList<String>(NumberOfWords);
         for (Word word : SearchWordsTree.values()) {
             index.add(word.toString());
@@ -50,6 +50,23 @@ public class ControlClass {
         return index;
     }
 
+    public Word find(String word) {
+        Word r = SearchWordsTree.get(word);
+        return r;
+
+    }
+
+    public Object findLinesForWords(String words) {
+        String[] wordsToSearch = words.split(" ");
+        Integer[] lines = SearchWordsTree.get(wordsToSearch[0]).lines();
+        for (int i = 1; i < wordsToSearch.length-1; i++) {
+            Word word = wordsToSearch[i];
+            boolean inAll = true;
+            for (int line : lines) {
+                inAll = inAll &&
+            }
+        }
+    }
     private boolean isExcluded(String word, int i, int j) {
         if (i > j) { return false; }
         int k = (i + j)/2;
@@ -58,7 +75,8 @@ public class ControlClass {
         if (comp == 1) { j = k - 1; }
         else { i = k + 1; }
         return isExcluded(word, i, j);
-
     }
+
+
 
 }
